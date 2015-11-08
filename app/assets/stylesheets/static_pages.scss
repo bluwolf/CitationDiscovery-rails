@@ -49,6 +49,12 @@ body {
   text-shadow: 3px 3px 4px #000000;
 }
 
+.container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    opacity: .6;
+    background-color: black;
+}
 
 
 @media screen and (max-width: 800px) {
