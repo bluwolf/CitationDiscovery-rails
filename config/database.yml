@@ -20,8 +20,8 @@ default: &default
 
 development:
   <<: *default
-  database: db
-  username: db
+  database: discovery_citation_dev_db
+  username: discovery_citation
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -36,9 +36,9 @@ development:
 
   test:
     <<: *default
-    database: db
-    username: db
+    database: discovery_citation_test_db
+    username: discovery_citation
 
   production:
     <<: *default
-    database: db
+    database: discovery_citation_db
