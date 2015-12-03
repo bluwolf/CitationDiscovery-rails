@@ -12,10 +12,9 @@ class StaticPagesController < ApplicationController
   	#file = File.read(Rails.root.join("app/assets/ccmp.json"))
   	#data_hash = JSON.parse(file)
   	str = "Daily High-resolution Blended Analyses for sea surface temperature"
-  	cmd = './scholar.py -p #{str} --list-citations'
+  	cmd = './scholar.py -p "Daily High-resolution Blended Analyses for sea surface temperature" --list-citations'
   	data_hash = `#{cmd}`
-  	puts "Shu", data_hash
-  	if data_hash != nil
+  	if data_hash == nil
   		file = File.read(Rails.root.join("app/assets/ccmp.json"))
   		data_hash = JSON.parse(file)
   	else
