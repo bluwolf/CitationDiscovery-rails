@@ -2,8 +2,11 @@ class StaticPagesController < ApplicationController
   def home
   end
 
+
   def results
   end
+
+
 
   def load
   	#file = File.read(Rails.root.join("app/assets/ccmp.json"))
@@ -19,5 +22,6 @@ class StaticPagesController < ApplicationController
   		data_hash = JSON.parse(data_hash)
   	end
   	render json:JSON.pretty_generate(data_hash)
+  end
 
 end
