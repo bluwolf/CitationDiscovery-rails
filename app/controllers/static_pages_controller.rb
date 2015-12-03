@@ -13,7 +13,7 @@ class StaticPagesController < ApplicationController
   	cmd = './scholar.py -p "#{str}" --list-citations'
   	data_hash = `#{cmd}`
   	if data_hash.nil? || data_hash.empty?
-  		file = File.read(Rails.root.join("app/assets/ccmp.json"))
+  		file = File.read(Rails.root.join("app/assets/quikscat.json"))
   		data_hash = JSON.parse(file) 		
   	else
   		data_hash = JSON.parse(data_hash)
