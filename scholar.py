@@ -1336,20 +1336,21 @@ scholar.py -c 5 -a "albert einstein" -t --none "quantum theory" --after 1970"""
         phrase = options.phrase
         
         querier.send_query(query)
-        cluster_id = querier.articles[0].attrs['cluster_id'][0]
-        citation_num = querier.articles[0].attrs['num_citations'][0]
-        #print('Cited paper information:')
-        #print('=======================================')
-        #citation_list_export_json(querier, phrase)
-        #print('=======================================\n')
-        query = SearchSholarCitationQuery(cluster_id)
-        res = []
-        for i in range(0, citation_num, ScholarConf.DEFAULT_PAGE_RESULTS):
-            time.sleep(1)
-            query.set_start_num(i)
-            querier.send_query(query)
-            citation_list_export_json(querier, phrase, res)
-        print(json.JSONEncoder().encode(res))
+        if querier.articles:
+            cluster_id = querier.articles[0].attrs['cluster_id'][0]
+            citation_num = querier.articles[0].attrs['num_citations'][0]
+            #print('Cited paper information:')
+            #print('=======================================')
+            #citation_list_export_json(querier, phrase)
+            #print('=======================================\n')
+            query = SearchSholarCitationQuery(cluster_id)
+            res = []
+            for i in range(0, citation_num, ScholarConf.DEFAULT_PAGE_RESULTS):
+                time.sleep(1)
+                query.set_start_num(i)
+                querier.send_query(query)
+                citation_list_export_json(querier, phrase, res)
+            print(json.JSONEncoder().encode(res))            
     else:
         querier.send_query(query)
         if options.csv:

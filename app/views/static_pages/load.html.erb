@@ -1,0 +1,39 @@
+<style media="screen">
+  .td{
+    height: 100px;
+  }
+</style>
+
+<div class="container " style="color:black; text-shadow: 0 0 #000000;">
+  <table class="striped">
+        <thead>
+          <tr>
+              <th data-field="Publisher" width = "20%">Publisher</th>
+              <th data-field="Author" width= "35%" >Author</th>
+              <th data-field="Url">Title</th>
+              <th data-field="Url">Entry Type</th>
+              <th data-field="Url" width= "5%">Year</th>
+              <th data-field="Url">URL</th>
+              <!-- <th data-field="Url">Dataset</th> -->
+              <!-- <th data-field="Url">ID</th> -->
+          </tr>
+        </thead>
+
+        <tbody>
+
+    <% @data.each do |data| %>
+      <tr>
+        <td><%= data['publisher'] %></td>
+        <td><%= data['author']  %></td>
+        <!-- <td><%= data['url']  %></td> -->
+        <td><%= data['title']  %></td>
+        <td><%= data['ENTRYTYPE']  %></td>
+        <td><%= data['year']  %></td>
+        <td><%= link_to 'URL', data['url'] %></td>
+        <!-- <td><%= data['dataset']  %></td> -->
+        <!-- <td><%= data['ID']  %></td> -->
+      </tr>
+    <% end %>
+        </tbody>
+      </table>
+</div>
